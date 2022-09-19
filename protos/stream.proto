@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+service VideoStream {
+  rpc Process (StreamRequest) returns (stream StreamReply) {}
+}
+
+// The request message containing the image.
+message StreamRequest {
+  int32 status = 1;
+}
+
+// The response message containing the reply
+message StreamReply {
+  bytes img = 1;
+  int32 height = 2;
+  int32 width = 3;
+  uint64 timestamp=4;
+}
